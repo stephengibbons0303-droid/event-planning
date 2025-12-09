@@ -35,23 +35,21 @@ marketing_agent = Agent(
 
 # Tasks
 venue_task = Task(
-    description="Find a venue in {event_city} that meets criteria for {event_topic}.",
+    description="Find a venue in {event_city} that meets criteria for {event_topic} for {age_group} with capacity for {expected_participants} guests and budget of ${budget}.",
     expected_output="All the details of a specifically chosen venue.",
     output_json=VenueDetails,
     agent=venue_coordinator
 )
 
 logistics_task = Task(
-    description="Coordinate catering and equipment for an event with {expected_participants} participants on {tentative_date}.",
-    expected_output="Confirmation of all logistics arrangements.",
-    async_execution=True,
+    description="Coordinate catering and equipment for a {event_topic} event with {expected_participants} participants ({age_group}) on {tentative_date}. Suggest appropriate food, drinks, and equipment for this age group.",
+    expected_output="A summary of catering recommendations and equipment needs.",
     agent=logistics_manager
 )
 
 marketing_task = Task(
-    description="Promote the {event_topic} aiming to engage at least {expected_participants} potential attendees.",
-    expected_output="Report on marketing activities and attendee engagement.",
-    async_execution=True,
+    description="Create a marketing plan for the {event_topic} targeting {age_group}, aiming to engage {expected_participants} potential attendees.",
+    expected_output="A brief marketing strategy with 2-3 channel recommendations.",
     agent=marketing_agent
 )
 
