@@ -244,7 +244,7 @@ HTML = '''
                     
                     if (json.marketing) {
                         html += '<div class="result-card"><h4>📢 Marketing</h4>';
-                        html += '<p>' + json.marketing.replace(/\n/g, '<br>') + '</p></div>';
+                        html += '<p>' + json.marketing.split('\\n').join('<br>') + '</p></div>';
                     }
                     
                     if (json.raw) {
