@@ -239,7 +239,7 @@ HTML = '''
                     
                     if (json.logistics) {
                         html += '<div class="result-card"><h4>📦 Logistics</h4>';
-                        html += '<p>' + json.logistics.replace(/\n/g, '<br>') + '</p></div>';
+                        html += '<p>' + json.logistics.split('\\n').join('<br>') + '</p></div>';
                     }
                     
                     if (json.marketing) {
