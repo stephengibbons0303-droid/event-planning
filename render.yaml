@@ -1,0 +1,28 @@
+from flask import Flask, jsonify
+import os
+from crewai import Agent, Crew, Task
+
+app = Flask(__name__)
+
+os.environ["OPENAI_MODEL_NAME"] = "gpt-3.5-turbo"
+
+@app.route('/')
+def home():
+    return "CrewAI running"
+
+@app.route('/run')
+def run_crew():
+    # Your crew logic here
+    return jsonify({"result": "crew output"})
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=10000)
+```
+
+3. **Update `requirements.txt`**:
+```
+crewai==0.28.8
+crewai_tools==0.1.6
+langchain_community==0.0.29
+flask
+gunicorn
