@@ -249,7 +249,7 @@ HTML = '''
                     
                     if (json.raw) {
                         html += '<div class="result-card"><h4>📋 Results</h4>';
-                        html += '<p>' + json.raw.replace(/\n/g, '<br>') + '</p></div>';
+                        html += '<p>' + json.raw.split('\\n').join('<br>') + '</p></div>';
                     }
                     
                     if (!html) {
